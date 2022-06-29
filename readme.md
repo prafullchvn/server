@@ -55,7 +55,7 @@ Method
 
   *Syntax*
   
-  `get(handlers)`
+  `get(route, handlers)`
 
 
 - Register post route
@@ -64,7 +64,7 @@ Method
 
   *Syntax*
   
-  `post(handlers)`
+  `post(route, handlers)`
   
 
 - Add default handler
