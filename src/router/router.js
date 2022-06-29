@@ -2,7 +2,7 @@ const { Iterator } = require('./iterator.js');
 
 class Router {
   #routes;
-  #fallback;
+  #defaultHandlers;
   #middleware;
   constructor() {
     this.#routes = {
@@ -10,7 +10,7 @@ class Router {
       post: {}
     };
     this.#middleware = [];
-    this.#fallback = [];
+    this.#defaultHandlers = [];
   }
 
   get(route, ...handler) {
@@ -31,8 +31,8 @@ class Router {
     this.#routes[route] = list;
   }
 
-  addFallbackHandler(handler) {
-    this.#fallback.push(handler);
+  addDefaultHandler(handler) {
+    this.#defaultHandlers.push(handler);
   }
 
   addMiddleware(middleware) {
@@ -55,7 +55,7 @@ class Router {
       return;
     }
 
-    const itr = new Iterator(this.#fallback, request, response);
+    const itr = new Iterator(this.#defaultHandlers, request, response);
     itr.next();
   }
 }

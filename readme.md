@@ -21,9 +21,9 @@ In order to use this package, you need to import the createServer method.
 
 ### **Router**
 
-It is class which is used to create router for server. Basically this maps each route to its own handler. This class also provides method to add handler and middleware. You can fallback function if none of the handler are able to handle route.
+It is class which is used to create router for server. Basically this maps each route to its own handler. This class also provides method to add handler and middleware. You can add default handler if none of the handler are able to handle route.
 
-It is suggested to add fallback function for notFound and to handle the static files or other resources served from rooDir.
+It is suggested to add default function for 404 error and to handle the static files or other resources served from rooDir.
 
  Each handler takes 3 parameters, `request`, `response` and `next`. Here request and response are object. next is method which can be used to call the next handler if current handler can not execute the request. *next is not available to middleware handlers*
 
@@ -67,13 +67,13 @@ Method
   `post(handlers)`
   
 
-- Add fallback function
+- Add default handler
 
   These function will be executed if none of the route is able to handle the current request.
 
   **Syntax**
 
-  `addFallbackFunction(handler)`
+  `addDefaultHandler(handler)`
 
 
 ### Response
